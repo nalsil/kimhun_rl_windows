@@ -32,7 +32,7 @@ while True:
         print("Game aborted!")
         break
 
-    action = arrow_keys[key];
+    action = arrow_keys[key]
     state, reward, done, info = env.step(action)
     env.render()
     print("State: ", state, "Action: ", action, "Reward: ", reward, "Info: ", info)
