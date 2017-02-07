@@ -1,10 +1,21 @@
 import gym
 from gym.envs.registration import register
-from colorama import init
-from kbhit import KBHit
+import readchar # pip install readchar
 
-#  ###########  Begin Moudules  ###########
-init(autoreset=True)
+# This is the original version, but not work on windows.
+# ........
+
+LEFT = 0
+DOWN = 1
+RIGHT = 2
+UP = 3
+
+arrow_keys = {
+    '\x1b[A' : UP,
+    '\x1b[B' : DOWN,
+    '\x1b[C' : RIGHT,
+    '\x1b[D' : LEFT
+}
 
 register(
     id='FrozenLake-v3',
@@ -16,13 +27,12 @@ env = gym.make('FrozenLake-v3')
 env.render()
 
 while True:
-    key = KBHit()
-    action = key.getarrow();
-
-    if action not in [0, 1, 2, 3]:
+    key = readchar.readkey()
+    if key not in arrow_keys.keys():
         print("Game aborted!")
         break
 
+    action = arrow_keys[key];
     state, reward, done, info = env.step(action)
     env.render()
     print("State: ", state, "Action: ", action, "Reward: ", reward, "Info: ", info)
