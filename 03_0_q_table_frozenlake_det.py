@@ -49,7 +49,6 @@ print("Final Q-Table Values")
 print("LEFT DOWN RIGHT UP")
 print(Q)
 
-error_config = {'ecolor': '0.3'}
 plt.bar(range(len(rList)), rList, color="blue")
 #plt.bar(range(len(rList)), rList, color='b', alpha=0.4)
 plt.show()
