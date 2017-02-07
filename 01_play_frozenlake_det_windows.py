@@ -11,8 +11,8 @@ register(
     kwargs={'map_name' : '4x4', 'is_slippery': False}
 )
 
-env = gym.make('FrozenLake-v3')
-env.render()
+env = gym.make('FrozenLake-v3')        # is_slippery False
+env.render()                             # Show the initial board
 
 key = KBHit()
 
